@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import ui.components.AppButton?>
+
+<!-- SHARED FILE - branding on one side, session controls on the other (mirrored automatically for RTL). -->
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ui.layout.TopBarController"
+      styleClass="top-bar"
+      alignment="CENTER_LEFT">
+
+    <children>
+        <Label fx:id="appNameLabel" styleClass="top-bar-brand" text="نظام نقاط البيع"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Label fx:id="currentUsernameLabel" styleClass="top-bar-user" text="-"/>
+        <Label fx:id="currentRoleLabel" styleClass="role-badge" text="-"/>
+
+        <AppButton fx:id="logoutButton"
+                   variant="SECONDARY"
+                   text="تسجيل الخروج"
+                   onAction="#onLogout"/>
+    </children>
+</HBox>

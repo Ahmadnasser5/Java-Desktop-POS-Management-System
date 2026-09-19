@@ -1,0 +1,29 @@
+/* =====================================================================
+   variables.css - SHARED FILE (ui governance: changes need team approval)
+   Single source of truth for colours and font family.
+   Values copied verbatim from uiContract.md section 4 and 5.
+   Never hard-code a hex value anywhere else in the project.
+   ===================================================================== */
+
+.root {
+    -fx-primary:        #2563EB;
+    -fx-primary-dark:   #1D4ED8;
+    -fx-background:     #F8FAFC;
+    -fx-surface:        #FFFFFF;
+    -fx-text-primary:   #0F172A;
+    -fx-text-secondary: #64748B;
+    -fx-border:         #E2E8F0;
+    -fx-success:        #16A34A;
+    -fx-warning:        #F59E0B;
+    -fx-danger:         #DC2626;
+    -fx-sidebar:        #0F172A;
+
+    /* Derived tints - kept here so no component invents its own colour */
+    -fx-primary-soft:   #DBEAFE;
+    -fx-success-soft:   #DCFCE7;
+    -fx-danger-soft:    #FEE2E2;
+    -fx-sidebar-hover:  #1E293B;
+
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+}

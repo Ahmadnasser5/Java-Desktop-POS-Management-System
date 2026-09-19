@@ -1,0 +1,336 @@
+/* =====================================================================
+   style.css - SHARED FILE (ui governance: changes need team approval)
+   Implements uiContract.md. Every screen in the project uses these
+   classes. No inline -fx-style overrides are allowed in FXML or Java.
+
+   Spacing rule: all paddings / gaps are multiples of 4px.
+       page padding 24 | card padding 16 | component gap 12 | section gap 24
+   ===================================================================== */
+
+/* =========================== 1. BASE ================================ */
+
+.root {
+    -fx-background-color: -fx-background;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.app-root {
+    -fx-background-color: -fx-background;
+}
+
+/* =========================== 2. TYPOGRAPHY ========================== */
+
+.app-title      { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
+.page-title     { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
+.section-title  { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
+.text-normal    { -fx-font-size: 14px; -fx-text-fill: -fx-text-primary; }
+.text-secondary { -fx-font-size: 13px; -fx-text-fill: -fx-text-secondary; }
+
+/* =========================== 3. TOP BAR ============================= */
+
+.top-bar {
+    -fx-background-color: -fx-surface;
+    -fx-padding: 12px 24px 12px 24px;
+    -fx-spacing: 12px;
+    -fx-border-color: transparent transparent -fx-border transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-min-height: 56px;
+    -fx-pref-height: 56px;
+}
+
+.top-bar-brand {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+}
+
+.top-bar-user {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-weight: bold;
+}
+
+.role-badge {
+    -fx-background-color: -fx-primary-soft;
+    -fx-text-fill: -fx-primary-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 4px 12px 4px 12px;
+    -fx-background-radius: 12px;
+}
+
+/* =========================== 4. SIDEBAR ============================= */
+
+.sidebar {
+    -fx-background-color: -fx-sidebar;
+    -fx-pref-width: 220px;
+    -fx-min-width: 180px;
+    -fx-padding: 16px 12px 16px 12px;
+    -fx-spacing: 4px;
+}
+
+.sidebar-section-label {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 13px;
+    -fx-padding: 12px 8px 4px 8px;
+}
+
+.sidebar-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-padding: 0 16px 0 16px;
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: infinity;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.sidebar-item:hover  { -fx-background-color: -fx-sidebar-hover; -fx-text-fill: white; }
+.sidebar-item:active,
+.sidebar-item.active { -fx-background-color: -fx-primary; -fx-text-fill: white; }
+.sidebar-item:disabled { -fx-opacity: 0.35; }
+
+/* =========================== 5. CONTENT / STATUS ==================== */
+
+.content-area {
+    -fx-background-color: -fx-background;
+    -fx-padding: 24px;              /* page padding */
+}
+
+.status-bar {
+    -fx-background-color: -fx-surface;
+    -fx-border-color: -fx-border transparent transparent transparent;
+    -fx-border-width: 1px 0 0 0;
+    -fx-padding: 4px 24px 4px 24px;
+    -fx-spacing: 12px;
+    -fx-min-height: 28px;
+    -fx-pref-height: 28px;
+}
+
+.status-bar-label { -fx-font-size: 13px; -fx-text-fill: -fx-text-secondary; }
+
+/* =========================== 6. CARD ================================ */
+
+.card {
+    -fx-background-color: -fx-surface;
+    -fx-background-radius: 6px;
+    -fx-border-color: -fx-border;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-padding: 16px;              /* card padding */
+    -fx-spacing: 12px;              /* component gap */
+}
+
+/* =========================== 7. BUTTONS ============================= */
+/* Contract: height 40px, h-padding 16px, radius 6px, 14px bold */
+
+.button {
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-padding: 0 16px 0 16px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-primary          { -fx-background-color: -fx-primary;      -fx-text-fill: white; }
+.btn-primary:hover    { -fx-background-color: -fx-primary-dark; }
+.btn-primary:pressed  { -fx-background-color: -fx-primary-dark; }
+
+.btn-secondary        { -fx-background-color: -fx-surface; -fx-text-fill: -fx-text-primary;
+                        -fx-border-color: -fx-border; -fx-border-width: 1px; }
+.btn-secondary:hover  { -fx-background-color: -fx-background; }
+
+.btn-danger           { -fx-background-color: -fx-danger; -fx-text-fill: white; }
+.btn-danger:hover     { -fx-background-color: #B91C1C; }
+
+.btn-success          { -fx-background-color: -fx-success; -fx-text-fill: white; }
+.btn-success:hover    { -fx-background-color: #15803D; }
+
+.button:disabled      { -fx-opacity: 0.5; -fx-cursor: default; }
+
+/* =========================== 8. FORM INPUTS ========================= */
+/* Contract: height 40px, 1px #E2E8F0 border, radius 6px, padding 12px */
+
+.app-text-field,
+.text-field,
+.password-field{
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-background-color: -fx-surface;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-primary;
+}
+.combo-box {
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-background-color: -fx-surface;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 14px;
+}
+
+.app-text-field:focused,
+.text-field:focused,
+.password-field:focused,
+.combo-box:focused { -fx-border-color: -fx-primary; }
+
+.app-text-field.invalid,
+.text-field.invalid,
+.password-field.invalid { -fx-border-color: -fx-danger; }
+
+.combo-box .list-cell { -fx-padding: 8px 12px 8px 12px; -fx-font-size: 14px; }
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-secondary;
+}
+
+/* Label directly above input, VBox wrapper */
+.form-field { -fx-spacing: 4px; }
+
+.check-box { -fx-font-size: 14px; -fx-text-fill: -fx-text-primary; }
+
+/* =========================== 9. TABLE =============================== */
+/* Contract: bold header 40px on #F8FAFC, fixed row height 38px, 13px text */
+
+.app-table {
+    -fx-background-color: -fx-surface;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-fixed-cell-size: 38px;
+    -fx-font-size: 13px;
+}
+
+.app-table .column-header-background { -fx-background-color: -fx-background; }
+
+.app-table .column-header {
+    -fx-background-color: -fx-background;
+    -fx-pref-height: 40px;
+    -fx-border-color: transparent transparent -fx-border transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.app-table .column-header .label {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-primary;
+    -fx-alignment: center-left;
+    -fx-padding: 0 8px 0 8px;
+}
+
+.app-table .table-cell {
+    -fx-padding: 0 8px 0 8px;
+    -fx-alignment: center-left;
+    -fx-border-color: transparent transparent -fx-border transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.app-table .table-row-cell          { -fx-background-color: -fx-surface; }
+.app-table .table-row-cell:odd      { -fx-background-color: -fx-surface; }
+.app-table .table-row-cell:hover    { -fx-background-color: -fx-background; }
+.app-table .table-row-cell:selected { -fx-background-color: -fx-primary-soft; }
+.app-table .table-row-cell:selected .table-cell { -fx-text-fill: -fx-text-primary; }
+
+/* Action buttons inside a table row must stay inside the 38px row */
+.table-action-button {
+    -fx-pref-height: 28px;
+    -fx-min-height: 28px;
+    -fx-padding: 0 12px 0 12px;
+    -fx-font-size: 12px;
+}
+
+/* =========================== 10. BADGES ============================= */
+
+.status-badge {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 4px 12px 4px 12px;
+    -fx-background-radius: 12px;
+}
+
+.status-badge-active   { -fx-background-color: -fx-success-soft; -fx-text-fill: -fx-success; }
+.status-badge-inactive { -fx-background-color: -fx-danger-soft;  -fx-text-fill: -fx-danger; }
+
+/* =========================== 11. FEEDBACK =========================== */
+
+.error-label {
+    -fx-text-fill: -fx-danger;
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+.loading-overlay { -fx-background-color: rgba(248, 250, 252, 0.75); }
+
+.placeholder-node   { -fx-spacing: 12px; -fx-alignment: center; -fx-padding: 24px; }
+.placeholder-title  { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -fx-text-secondary; }
+.placeholder-detail { -fx-font-size: 14px; -fx-text-fill: -fx-text-secondary; }
+
+.toast {
+    -fx-background-radius: 6px;
+    -fx-padding: 12px 16px 12px 16px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.toast-success { -fx-background-color: -fx-success; }
+.toast-error   { -fx-background-color: -fx-danger; }
+.toast-info    { -fx-background-color: -fx-primary; }
+
+/* =========================== 12. DIALOG ============================= */
+
+.dialog-root {
+    -fx-background-color: -fx-surface;
+    -fx-padding: 24px;
+    -fx-spacing: 24px;              /* section gap */
+}
+
+.dialog-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
+.dialog-actions { -fx-spacing: 12px; -fx-alignment: center-right; }
+
+/* =========================== 13. LOGIN (pre-auth) =================== */
+/* The login screen sits OUTSIDE the main frame (uiContract section 2
+   scopes the frame to post-authentication screens) but uses exactly the
+   same tokens, typography, inputs and buttons. */
+
+.login-root {
+    -fx-background-color: -fx-background;
+    -fx-alignment: center;
+    -fx-padding: 24px;
+}
+
+.login-card {
+    -fx-background-color: -fx-surface;
+    -fx-background-radius: 6px;
+    -fx-border-color: -fx-border;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-padding: 24px;
+    -fx-spacing: 16px;
+    -fx-max-width: 400px;
+    -fx-pref-width: 400px;
+}
+
+.login-logo { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -fx-primary; }
+
+/* =========================== 14. SCROLLPANE ========================= */
+
+.scroll-pane, .scroll-pane .viewport { -fx-background-color: transparent; }
+.scroll-pane { -fx-background-insets: 0; -fx-padding: 0; }

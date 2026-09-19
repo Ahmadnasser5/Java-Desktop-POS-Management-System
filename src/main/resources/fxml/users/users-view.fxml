@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ui.components.AppButton?>
+<?import ui.components.AppTableView?>
+<?import ui.components.AppTextField?>
+<?import ui.components.LoadingOverlay?>
+
+<!--
+  User Management (Engineer 1).
+  Rendered INSIDE the shared Content Area - it defines no frame of its own.
+-->
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.pos.auth.controller.UserListController"
+           fx:id="usersRootPane">
+
+    <children>
+        <VBox spacing="24.0">
+            <children>
+
+                <!-- Page header -->
+                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                    <children>
+                        <Label styleClass="page-title" text="المستخدمون"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <AppTextField fx:id="userSearchField"
+                                      promptText="بحث بالاسم أو اسم المستخدم"
+                                      prefWidth="280.0"/>
+                        <AppButton fx:id="addUserButton"
+                                   variant="PRIMARY"
+                                   text="+ إضافة مستخدم"
+                                   onAction="#onAddUser"/>
+                    </children>
+                </HBox>
+
+                <!-- Table card -->
+                <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                    <children>
+                        <AppTableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="usernameColumn"  text="اسم المستخدم"     prefWidth="160.0"/>
+                                <TableColumn fx:id="fullNameColumn"  text="الاسم الكامل"      prefWidth="200.0"/>
+                                <TableColumn fx:id="roleColumn"      text="الدور"             prefWidth="120.0"/>
+                                <TableColumn fx:id="statusColumn"    text="الحالة"            prefWidth="110.0"/>
+                                <TableColumn fx:id="lastLoginColumn" text="آخر تسجيل دخول"    prefWidth="170.0"/>
+                                <TableColumn fx:id="actionsColumn"   text="الإجراءات"         prefWidth="320.0"/>
+                            </columns>
+                        </AppTableView>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Label fx:id="usersCountLabel" styleClass="text-secondary" text=""/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+            </children>
+        </VBox>
+
+        <LoadingOverlay fx:id="usersLoadingOverlay"/>
+    </children>
+</StackPane>

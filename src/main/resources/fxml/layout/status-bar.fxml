@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<!-- SHARED FILE - application state and version. -->
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ui.layout.StatusBarController"
+      styleClass="status-bar"
+      alignment="CENTER_LEFT">
+
+    <children>
+        <Label fx:id="statusMessageLabel" styleClass="status-bar-label" text="جاهز"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="versionLabel" styleClass="status-bar-label" text="الإصدار 1.0.0"/>
+    </children>
+</HBox>
