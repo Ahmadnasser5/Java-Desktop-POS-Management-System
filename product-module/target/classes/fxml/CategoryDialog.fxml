@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pos.product.controller.CategoryDialogController"
+      stylesheets="@../css/styles.css"
+      nodeOrientation="RIGHT_TO_LEFT"
+      styleClass="form-card"
+      spacing="14"
+      prefWidth="720" prefHeight="560">
+
+    <padding><Insets top="20" right="22" bottom="20" left="22"/></padding>
+
+    <Label text="إدارة التصنيفات" styleClass="form-title"/>
+    <Label text="اضغط على تصنيف لعرض المنتجات الموجودة بداخله" styleClass="field-label" wrapText="true"/>
+
+    <HBox spacing="18" VBox.vgrow="ALWAYS">
+
+        <!-- عمود التصنيفات -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" prefWidth="280">
+            <ListView fx:id="categoryListView" VBox.vgrow="ALWAYS"/>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <TextField fx:id="newCategoryField" promptText="اسم التصنيف الجديد" HBox.hgrow="ALWAYS"/>
+                <Button text="إضافة" styleClass="button-primary" onAction="#handleAddCategory"/>
+            </HBox>
+
+            <Button text="حذف المحدد" styleClass="button-danger" onAction="#handleDeleteCategory" maxWidth="Infinity"/>
+        </VBox>
+
+        <Separator orientation="VERTICAL"/>
+
+        <!-- عمود المنتجات الخاصة بالتصنيف المحدد -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" prefWidth="340">
+            <Label fx:id="productsSectionLabel" text="اختر تصنيفًا لعرض منتجاته" styleClass="form-title"/>
+            <ListView fx:id="productsInCategoryListView" VBox.vgrow="ALWAYS">
+                <placeholder>
+                    <Label text="لا توجد منتجات لعرضها" styleClass="status-label"/>
+                </placeholder>
+            </ListView>
+        </VBox>
+
+    </HBox>
+
+    <Label fx:id="categoryStatusLabel" styleClass="status-label" wrapText="true"/>
+
+    <HBox alignment="CENTER_LEFT">
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="إغلاق" styleClass="button-ghost" onAction="#handleClose"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,251 @@
+/*
+ * Products & Inventory - visual theme (Arabic / RTL)
+ *
+ * Palette: indigo (brand/primary actions) + emerald (secondary/confirm) +
+ * amber (stock alerts) on a cool light-neutral surface. Chosen over a single
+ * flat teal so the screen reads as an intentional, layered design instead of
+ * one color repeated everywhere - each hue is reserved for one job:
+ *   indigo  -> primary actions, focus states, header
+ *   emerald -> secondary actions, header gradient partner
+ *   amber   -> low-stock alerts only (badge + report button + rows)
+ *   red     -> destructive actions only (delete)
+ */
+
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #F3F4FA;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Header (indigo -> emerald gradient) ---------- */
+
+.top-bar {
+    -fx-background-color: linear-gradient(to right, #4338CA, #059669);
+    -fx-padding: 24 30 24 30;
+}
+
+.top-bar .title-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 23px;
+    -fx-font-weight: 700;
+}
+
+.top-bar .subtitle-label {
+    -fx-text-fill: #DCEFE6;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Toolbar (search / filter row) ---------- */
+
+.toolbar-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-border-color: #E3E6F2;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 16 20 16 20;
+    -fx-effect: dropshadow(gaussian, rgba(67,56,202,0.08), 14, 0, 0, 3);
+}
+
+.search-field {
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-border-color: #D9DCEA;
+    -fx-border-width: 1;
+    -fx-padding: 8 14 8 14;
+    -fx-prompt-text-fill: #9A9DB0;
+    -fx-font-size: 13px;
+}
+.search-field:focused {
+    -fx-border-color: #4338CA;
+}
+
+/* Amber - reserved exclusively for low-stock signalling */
+.low-stock-badge {
+    -fx-text-fill: #92400E;
+    -fx-background-color: #FEF0CD;
+    -fx-background-radius: 14;
+    -fx-padding: 5 14 5 14;
+    -fx-font-weight: 700;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+    -fx-background-radius: 7;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+/* Indigo - primary brand action (Add) */
+.button-primary {
+    -fx-background-color: #4338CA;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-effect: dropshadow(gaussian, rgba(67,56,202,0.35), 8, 0, 0, 2);
+}
+.button-primary:hover { -fx-background-color: #372FA6; }
+.button-primary:pressed { -fx-background-color: #2D2789; }
+
+/* Emerald - secondary confirm-style action (Search, Update, low-stock report) */
+.button-secondary {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #047857;
+    -fx-border-color: #059669;
+    -fx-border-radius: 7;
+    -fx-border-width: 1;
+}
+.button-secondary:hover { -fx-background-color: #E7F5EF; }
+.button-secondary:pressed { -fx-background-color: #D2EBE0; }
+
+/* Red - destructive action only */
+.button-danger {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #B91C1C;
+    -fx-border-color: #E0897A;
+    -fx-border-radius: 7;
+    -fx-border-width: 1;
+}
+.button-danger:hover { -fx-background-color: #FBEAE3; }
+.button-danger:pressed { -fx-background-color: #F3D2C4; }
+
+.button-ghost {
+    -fx-background-color: transparent;
+    -fx-text-fill: #5A5E73;
+}
+.button-ghost:hover { -fx-background-color: #E9EAF3; }
+.button-ghost:pressed { -fx-background-color: #DCDEEC; }
+
+/* ---------- Table ---------- */
+
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E3E6F2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(67,56,202,0.06), 14, 0, 0, 3);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #ECEBFA;
+    -fx-background-radius: 10 10 0 0;
+    -fx-pref-height: 42px;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #DCDCF0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #322E7A;
+    -fx-font-weight: 700;
+    -fx-font-size: 12.5px;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #EEEEF6 transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-cell-size: 38px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAFAFD;
+}
+
+/* Indigo selection tint */
+.table-row-cell:selected {
+    -fx-background-color: #E0DFF9;
+    -fx-text-fill: #1E2235;
+}
+
+/* Amber - low stock rows, distinct from the red danger button */
+.table-row-cell.low-stock-row {
+    -fx-background-color: #FEF3D6;
+}
+.table-row-cell.low-stock-row:selected {
+    -fx-background-color: #FCE4A6;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #9A9DB0;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Bottom form card ---------- */
+
+.form-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E3E6F2;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 22 26 20 26;
+    -fx-effect: dropshadow(gaussian, rgba(67,56,202,0.08), 16, 0, 0, 4);
+}
+
+.form-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1E2235;
+}
+
+.field-label {
+    -fx-text-fill: #5A5E73;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 600;
+}
+
+.text-field, .combo-box {
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-border-color: #D9DCEA;
+    -fx-border-width: 1;
+    -fx-padding: 6 12 6 12;
+    -fx-font-size: 13px;
+}
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #4338CA;
+}
+
+.combo-box .list-cell {
+    -fx-padding: 6 12 6 12;
+}
+
+.status-label {
+    -fx-text-fill: #5A5E73;
+    -fx-font-size: 12.5px;
+}
+
+/* ---------- List view (category management dialog) ---------- */
+
+.list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E3E6F2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.list-view .list-cell {
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+    -fx-background-color: #FFFFFF;
+}
+
+.list-view .list-cell:odd {
+    -fx-background-color: #FAFAFD;
+}
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #E0DFF9;
+    -fx-text-fill: #1E2235;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #EEEEF9;
+}
