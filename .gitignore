@@ -1,0 +1,9 @@
+target/
+*.class
+.idea/
+*.iml
+*.log
+
+# NEVER commit real credentials
+src/main/resources/db.properties
+db.properties

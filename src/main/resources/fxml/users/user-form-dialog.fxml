@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import ui.components.AppButton?>
+<?import ui.components.AppPasswordField?>
+<?import ui.components.AppTextField?>
+
+<!-- Add / edit user, and administrative password reset (Engineer 1). -->
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pos.auth.controller.UserFormController"
+      styleClass="dialog-root"
+      prefWidth="440.0">
+
+    <children>
+        <Label fx:id="dialogTitleLabel" styleClass="dialog-title" text="إضافة مستخدم"/>
+
+        <!-- Account fields: hidden in password reset mode -->
+        <VBox fx:id="accountFieldsBox" spacing="12.0">
+            <children>
+                <VBox styleClass="form-field">
+                    <children>
+                        <Label styleClass="field-label" text="اسم المستخدم"/>
+                        <AppTextField fx:id="usernameField" promptText="مثال: sara.ahmed"/>
+                    </children>
+                </VBox>
+
+                <VBox styleClass="form-field">
+                    <children>
+                        <Label styleClass="field-label" text="الاسم الكامل"/>
+                        <AppTextField fx:id="fullNameField" promptText="اختياري"/>
+                    </children>
+                </VBox>
+
+                <VBox styleClass="form-field">
+                    <children>
+                        <Label styleClass="field-label" text="الدور"/>
+                        <ComboBox fx:id="roleComboBox" maxWidth="Infinity"/>
+                    </children>
+                </VBox>
+
+                <CheckBox fx:id="activeCheckBox" text="الحساب مفعّل" selected="true"/>
+            </children>
+        </VBox>
+
+        <!-- Password fields: hidden in edit mode -->
+        <VBox fx:id="passwordFieldsBox" spacing="12.0">
+            <children>
+                <VBox styleClass="form-field">
+                    <children>
+                        <Label styleClass="field-label" text="كلمة المرور"/>
+                        <AppPasswordField fx:id="passwordField"/>
+                    </children>
+                </VBox>
+
+                <VBox styleClass="form-field">
+                    <children>
+                        <Label styleClass="field-label" text="تأكيد كلمة المرور"/>
+                        <AppPasswordField fx:id="confirmPasswordField"/>
+                    </children>
+                </VBox>
+
+                <Label fx:id="passwordHintLabel" styleClass="text-secondary" wrapText="true" text=""/>
+            </children>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="error-label" managed="false" visible="false" text=""/>
+
+        <HBox styleClass="dialog-actions">
+            <children>
+                <AppButton variant="SECONDARY" text="إلغاء" onAction="#onCancel"/>
+                <AppButton variant="PRIMARY" text="حفظ" onAction="#onSave"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>

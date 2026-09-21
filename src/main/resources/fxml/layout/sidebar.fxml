@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  SHARED FILE - primary navigation.
+  Visibility of each item is decided at runtime by SidebarController using the
+  permissions of the logged-in user.
+-->
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ui.layout.SidebarController"
+      styleClass="sidebar">
+
+    <children>
+        <Label styleClass="sidebar-section-label" text="الرئيسية"/>
+
+        <Button fx:id="dashboardNavButton"  styleClass="sidebar-item" text="لوحة التحكم" onAction="#onDashboard"/>
+        <Button fx:id="posNavButton"        styleClass="sidebar-item" text="المبيعات"    onAction="#onPos"/>
+
+        <Label styleClass="sidebar-section-label" text="الكتالوج"/>
+
+        <Button fx:id="productsNavButton"   styleClass="sidebar-item" text="المنتجات"    onAction="#onProducts"/>
+        <Button fx:id="categoriesNavButton" styleClass="sidebar-item" text="التصنيفات"   onAction="#onCategories"/>
+
+        <Label styleClass="sidebar-section-label" text="الإدارة"/>
+
+        <Button fx:id="usersNavButton"      styleClass="sidebar-item" text="المستخدمون"  onAction="#onUsers"/>
+        <Button fx:id="reportsNavButton"    styleClass="sidebar-item" text="التقارير"    onAction="#onReports"/>
+    </children>
+</VBox>
