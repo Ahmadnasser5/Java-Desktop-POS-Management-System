@@ -2,6 +2,7 @@ package ui.layout;
 
 import com.pos.auth.security.Permissions;
 import com.pos.auth.service.AuthorizationService;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -49,12 +50,12 @@ public class SidebarController {
         button.setManaged(allowed);
     }
 
-    /** ADMIN lands on the dashboard area, SALES lands on the POS area. */
+    /** Users who can sell land on POS first; admins can still open the dashboard. */
     private void openDefaultViewForRole() {
-        if (AuthorizationService.isAdmin()) {
-            onDashboard();
-        } else if (AuthorizationService.isSales()) {
+        if (AuthorizationService.hasPermission(Permissions.SALE_CREATE)) {
             onPos();
+        } else if (AuthorizationService.isAdmin()) {
+            onDashboard();
         }
     }
 
@@ -80,8 +81,7 @@ public class SidebarController {
     @FXML
     private void onPos() {
         select(posNavButton);
-        mainLayout.showModulePlaceholder("نقطة البيع",
-                "هذه الوحدة من مسؤولية المهندس رقم 3 ولم يتم دمجها بعد.");
+        mainLayout.loadView("/fxml/sales/pos-view.fxml");
     }
 
     @FXML

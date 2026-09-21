@@ -1,10 +1,5 @@
 package com.pos.auth.dao;
 
-import com.pos.core.db.ConnectionFactory;
-import com.pos.core.exception.DataAccessException;
-import com.pos.auth.model.Role;
-import com.pos.auth.model.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +9,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import com.pos.auth.model.Role;
+import com.pos.auth.model.User;
+import com.pos.core.db.ConnectionFactory;
+import com.pos.core.exception.DataAccessException;
 
 /**
  * JDBC implementation. Every statement is a {@link PreparedStatement};
@@ -52,16 +52,16 @@ public class UserDaoImpl implements UserDao {
             "UPDATE users SET last_login_at = CURRENT_TIMESTAMP WHERE id = ?";
 
     private static final String EXISTS_USERNAME =
-            "SELECT 1 FROM users WHERE username = ? LIMIT 1";
+            "SELECT TOP 1 1 FROM users WHERE username = ?";
 
     private static final String EXISTS_USERNAME_EXCL =
-            "SELECT 1 FROM users WHERE username = ? AND id <> ? LIMIT 1";
+            "SELECT TOP 1 1 FROM users WHERE username = ? AND id <> ?";
 
     private static final String DELETE = "DELETE FROM users WHERE id = ?";
 
     private static final String COUNT_ACTIVE_ADMINS =
             "SELECT COUNT(*) FROM users u JOIN roles r ON r.id = u.role_id "
-          + "WHERE r.name = 'ADMIN' AND u.active = TRUE";
+                    + "WHERE r.name = 'ADMIN' AND u.active = 1";
 
     // ------------------------------------------------------------------ read
 

@@ -31,16 +31,16 @@
             <version>${javafx.version}</version>
         </dependency>
 
-        <!-- ============ MySQL JDBC Driver ============ -->
+        <!-- ============ SQL Server JDBC Driver ============ -->
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>9.0.0</version>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.8.1.jre11</version>
         </dependency>
 
         <!-- ============ Password Hashing (BCrypt) ============ -->
         <!-- at.favre.lib is actively maintained, zero-dependency, security reviewed.
-             jBCrypt was deliberately NOT used: unmaintained since ~2010. -->
+        jBCrypt was deliberately NOT used: unmaintained since ~2010. -->
         <dependency>
             <groupId>at.favre.lib</groupId>
             <artifactId>bcrypt</artifactId>
