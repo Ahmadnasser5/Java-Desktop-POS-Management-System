@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ui.components.AppButton?>
+<?import ui.components.AppTableView?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.pos.sales.PosController"
+           fx:id="posRootPane"
+           nodeOrientation="RIGHT_TO_LEFT">
+    <BorderPane styleClass="pos-root">
+        <right>
+            <VBox styleClass="pos-controls-card" spacing="12">
+                <Label styleClass="section-title" text="التحكم"/>
+                <AppButton text="جديد" variant="PRIMARY" styleClass="pos-action-new" onAction="#onNewInvoice"/>
+                <AppButton text="تعليق فاتورة" variant="SECONDARY" styleClass="pos-action-warning" onAction="#onPlaceholderAction"/>
+                <AppButton text="حذف فاتورة" variant="DANGER" styleClass="pos-action-delete" onAction="#onNewInvoice"/>
+                <AppButton text="حذف صنف" variant="DANGER" styleClass="pos-action-delete" onAction="#onDeleteSelectedItem"/>
+                <Region VBox.vgrow="ALWAYS"/>
+                <AppButton text="دفع" variant="SUCCESS" onAction="#onPay"/>
+                <AppButton text="بحث الفواتير" variant="SECONDARY" styleClass="pos-action-secondary" onAction="#onPlaceholderAction"/>
+                <AppButton text="مبيعات الصالة" variant="SECONDARY" styleClass="pos-action-secondary" onAction="#onPlaceholderAction"/>
+                <AppButton text="فتح الصندوق" variant="SECONDARY" styleClass="pos-action-secondary" onAction="#onPlaceholderAction"/>
+            </VBox>
+        </right>
+        <center>
+            <VBox styleClass="pos-products-panel" spacing="12">
+                <HBox alignment="CENTER_RIGHT" spacing="12">
+                    <Label styleClass="page-title" text="نقطة البيع"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="productSearchField" promptText="بحث بالاسم" prefWidth="240"/>
+                </HBox>
+                <FlowPane fx:id="categoryBar" styleClass="pos-category-bar" hgap="8" vgap="8"/>
+                <FlowPane fx:id="productsGrid" styleClass="pos-products-grid" hgap="12" vgap="12" prefWrapLength="620" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </center>
+        <left>
+            <VBox styleClass="pos-cart-card" spacing="12">
+                <HBox alignment="CENTER_RIGHT" spacing="12">
+                    <Label styleClass="section-title" text="السلة"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="invoiceNumberLabel" styleClass="text-secondary"/>
+                </HBox>
+                <AppTableView fx:id="cartTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="cartProductColumn" text="الصنف" prefWidth="150"/>
+                        <TableColumn fx:id="cartQuantityColumn" text="الكمية" prefWidth="65"/>
+                        <TableColumn fx:id="cartPriceColumn" text="السعر" prefWidth="75"/>
+                        <TableColumn fx:id="cartTotalColumn" text="الإجمالي" prefWidth="85"/>
+                        <TableColumn fx:id="cartActionsColumn" text="" prefWidth="70"/>
+                    </columns>
+                    <placeholder><Label text="السلة فارغة" styleClass="text-secondary"/></placeholder>
+                </AppTableView>
+                <HBox alignment="CENTER_RIGHT" spacing="8">
+                    <Label fx:id="itemCountLabel" styleClass="text-secondary"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="طريقة الدفع: نقدي" styleClass="text-secondary"/>
+                </HBox>
+                <VBox styleClass="pos-totals" spacing="8">
+                    <HBox><Label text="المجموع:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="subtotalValueLabel" text="0.00"/></HBox>
+                    <HBox><Label text="قيمة الضريبة:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="taxValueLabel" text="0.00"/></HBox>
+                    <HBox alignment="CENTER_RIGHT"><Label text="قيمة الخصم:"/><Region HBox.hgrow="ALWAYS"/><TextField fx:id="discountField" text="0" prefWidth="96"/></HBox>
+                    <HBox styleClass="pos-grand-total"><Label text="الإجمالي:"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="grandTotalValueLabel" text="0.00"/></HBox>
+                </VBox>
+            </VBox>
+        </left>
+    </BorderPane>
+</StackPane>

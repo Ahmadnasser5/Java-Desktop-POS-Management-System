@@ -6,6 +6,7 @@ import com.pos.core.db.ConnectionFactory;
 import com.pos.core.util.AlertUtil;
 import com.pos.core.util.Navigator;
 import com.pos.core.util.ValidationUtil;
+
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -111,7 +112,7 @@ public class LoginController {
     /** Called once at start-up so a broken database is reported clearly. */
     public void warnIfDatabaseUnreachable() {
         if (!ConnectionFactory.testConnection()) {
-            showError("تعذّر الاتصال بقاعدة البيانات. تأكد من تشغيل MySQL "
+            showError("تعذّر الاتصال بقاعدة البيانات. تأكد من تشغيل SQL Server "
                     + "ومن ضبط ملف db.properties.");
             loginButton.setDisable(true);
         }

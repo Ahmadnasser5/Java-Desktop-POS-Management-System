@@ -20,11 +20,33 @@
 
 /* =========================== 2. TYPOGRAPHY ========================== */
 
-.app-title      { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
-.page-title     { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
-.section-title  { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
-.text-normal    { -fx-font-size: 14px; -fx-text-fill: -fx-text-primary; }
-.text-secondary { -fx-font-size: 13px; -fx-text-fill: -fx-text-secondary; }
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.page-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.text-normal {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.text-secondary {
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-secondary;
+}
 
 /* =========================== 3. TOP BAR ============================= */
 
@@ -89,16 +111,27 @@
     -fx-cursor: hand;
 }
 
-.sidebar-item:hover  { -fx-background-color: -fx-sidebar-hover; -fx-text-fill: white; }
+.sidebar-item:hover {
+    -fx-background-color: -fx-sidebar-hover;
+    -fx-text-fill: white;
+}
+
 .sidebar-item:active,
-.sidebar-item.active { -fx-background-color: -fx-primary; -fx-text-fill: white; }
-.sidebar-item:disabled { -fx-opacity: 0.35; }
+.sidebar-item.active {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+}
+
+.sidebar-item:disabled {
+    -fx-opacity: 0.35;
+}
 
 /* =========================== 5. CONTENT / STATUS ==================== */
 
 .content-area {
     -fx-background-color: -fx-background;
-    -fx-padding: 24px;              /* page padding */
+    -fx-padding: 24px;
+    /* page padding */
 }
 
 .status-bar {
@@ -111,7 +144,10 @@
     -fx-pref-height: 28px;
 }
 
-.status-bar-label { -fx-font-size: 13px; -fx-text-fill: -fx-text-secondary; }
+.status-bar-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-secondary;
+}
 
 /* =========================== 6. CARD ================================ */
 
@@ -121,8 +157,10 @@
     -fx-border-color: -fx-border;
     -fx-border-radius: 6px;
     -fx-border-width: 1px;
-    -fx-padding: 16px;              /* card padding */
-    -fx-spacing: 12px;              /* component gap */
+    -fx-padding: 16px;
+    /* card padding */
+    -fx-spacing: 12px;
+    /* component gap */
 }
 
 /* =========================== 7. BUTTONS ============================= */
@@ -139,28 +177,59 @@
     -fx-cursor: hand;
 }
 
-.btn-primary          { -fx-background-color: -fx-primary;      -fx-text-fill: white; }
-.btn-primary:hover    { -fx-background-color: -fx-primary-dark; }
-.btn-primary:pressed  { -fx-background-color: -fx-primary-dark; }
+.btn-primary {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+}
 
-.btn-secondary        { -fx-background-color: -fx-surface; -fx-text-fill: -fx-text-primary;
-                        -fx-border-color: -fx-border; -fx-border-width: 1px; }
-.btn-secondary:hover  { -fx-background-color: -fx-background; }
+.btn-primary:hover {
+    -fx-background-color: -fx-primary-dark;
+}
 
-.btn-danger           { -fx-background-color: -fx-danger; -fx-text-fill: white; }
-.btn-danger:hover     { -fx-background-color: #B91C1C; }
+.btn-primary:pressed {
+    -fx-background-color: -fx-primary-dark;
+}
 
-.btn-success          { -fx-background-color: -fx-success; -fx-text-fill: white; }
-.btn-success:hover    { -fx-background-color: #15803D; }
+.btn-secondary {
+    -fx-background-color: -fx-surface;
+    -fx-text-fill: -fx-text-primary;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+}
 
-.button:disabled      { -fx-opacity: 0.5; -fx-cursor: default; }
+.btn-secondary:hover {
+    -fx-background-color: -fx-background;
+}
+
+.btn-danger {
+    -fx-background-color: -fx-danger;
+    -fx-text-fill: white;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #B91C1C;
+}
+
+.btn-success {
+    -fx-background-color: -fx-success;
+    -fx-text-fill: white;
+}
+
+.btn-success:hover {
+    -fx-background-color: #15803D;
+}
+
+.button:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
 
 /* =========================== 8. FORM INPUTS ========================= */
 /* Contract: height 40px, 1px #E2E8F0 border, radius 6px, padding 12px */
 
 .app-text-field,
 .text-field,
-.password-field{
+.password-field {
     -fx-pref-height: 40px;
     -fx-min-height: 40px;
     -fx-background-color: -fx-surface;
@@ -172,6 +241,7 @@
     -fx-font-size: 14px;
     -fx-text-fill: -fx-text-primary;
 }
+
 .combo-box {
     -fx-pref-height: 40px;
     -fx-min-height: 40px;
@@ -186,13 +256,20 @@
 .app-text-field:focused,
 .text-field:focused,
 .password-field:focused,
-.combo-box:focused { -fx-border-color: -fx-primary; }
+.combo-box:focused {
+    -fx-border-color: -fx-primary;
+}
 
 .app-text-field.invalid,
 .text-field.invalid,
-.password-field.invalid { -fx-border-color: -fx-danger; }
+.password-field.invalid {
+    -fx-border-color: -fx-danger;
+}
 
-.combo-box .list-cell { -fx-padding: 8px 12px 8px 12px; -fx-font-size: 14px; }
+.combo-box .list-cell {
+    -fx-padding: 8px 12px 8px 12px;
+    -fx-font-size: 14px;
+}
 
 .field-label {
     -fx-font-size: 13px;
@@ -201,9 +278,14 @@
 }
 
 /* Label directly above input, VBox wrapper */
-.form-field { -fx-spacing: 4px; }
+.form-field {
+    -fx-spacing: 4px;
+}
 
-.check-box { -fx-font-size: 14px; -fx-text-fill: -fx-text-primary; }
+.check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-primary;
+}
 
 /* =========================== 9. TABLE =============================== */
 /* Contract: bold header 40px on #F8FAFC, fixed row height 38px, 13px text */
@@ -218,7 +300,9 @@
     -fx-font-size: 13px;
 }
 
-.app-table .column-header-background { -fx-background-color: -fx-background; }
+.app-table .column-header-background {
+    -fx-background-color: -fx-background;
+}
 
 .app-table .column-header {
     -fx-background-color: -fx-background;
@@ -243,11 +327,25 @@
     -fx-text-fill: -fx-text-primary;
 }
 
-.app-table .table-row-cell          { -fx-background-color: -fx-surface; }
-.app-table .table-row-cell:odd      { -fx-background-color: -fx-surface; }
-.app-table .table-row-cell:hover    { -fx-background-color: -fx-background; }
-.app-table .table-row-cell:selected { -fx-background-color: -fx-primary-soft; }
-.app-table .table-row-cell:selected .table-cell { -fx-text-fill: -fx-text-primary; }
+.app-table .table-row-cell {
+    -fx-background-color: -fx-surface;
+}
+
+.app-table .table-row-cell:odd {
+    -fx-background-color: -fx-surface;
+}
+
+.app-table .table-row-cell:hover {
+    -fx-background-color: -fx-background;
+}
+
+.app-table .table-row-cell:selected {
+    -fx-background-color: -fx-primary-soft;
+}
+
+.app-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: -fx-text-primary;
+}
 
 /* Action buttons inside a table row must stay inside the 38px row */
 .table-action-button {
@@ -266,8 +364,15 @@
     -fx-background-radius: 12px;
 }
 
-.status-badge-active   { -fx-background-color: -fx-success-soft; -fx-text-fill: -fx-success; }
-.status-badge-inactive { -fx-background-color: -fx-danger-soft;  -fx-text-fill: -fx-danger; }
+.status-badge-active {
+    -fx-background-color: -fx-success-soft;
+    -fx-text-fill: -fx-success;
+}
+
+.status-badge-inactive {
+    -fx-background-color: -fx-danger-soft;
+    -fx-text-fill: -fx-danger;
+}
 
 /* =========================== 11. FEEDBACK =========================== */
 
@@ -277,11 +382,26 @@
     -fx-wrap-text: true;
 }
 
-.loading-overlay { -fx-background-color: rgba(248, 250, 252, 0.75); }
+.loading-overlay {
+    -fx-background-color: rgba(248, 250, 252, 0.75);
+}
 
-.placeholder-node   { -fx-spacing: 12px; -fx-alignment: center; -fx-padding: 24px; }
-.placeholder-title  { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -fx-text-secondary; }
-.placeholder-detail { -fx-font-size: 14px; -fx-text-fill: -fx-text-secondary; }
+.placeholder-node {
+    -fx-spacing: 12px;
+    -fx-alignment: center;
+    -fx-padding: 24px;
+}
+
+.placeholder-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.placeholder-detail {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-secondary;
+}
 
 .toast {
     -fx-background-radius: 6px;
@@ -290,20 +410,38 @@
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-.toast-success { -fx-background-color: -fx-success; }
-.toast-error   { -fx-background-color: -fx-danger; }
-.toast-info    { -fx-background-color: -fx-primary; }
+
+.toast-success {
+    -fx-background-color: -fx-success;
+}
+
+.toast-error {
+    -fx-background-color: -fx-danger;
+}
+
+.toast-info {
+    -fx-background-color: -fx-primary;
+}
 
 /* =========================== 12. DIALOG ============================= */
 
 .dialog-root {
     -fx-background-color: -fx-surface;
     -fx-padding: 24px;
-    -fx-spacing: 24px;              /* section gap */
+    -fx-spacing: 24px;
+    /* section gap */
 }
 
-.dialog-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -fx-text-primary; }
-.dialog-actions { -fx-spacing: 12px; -fx-alignment: center-right; }
+.dialog-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.dialog-actions {
+    -fx-spacing: 12px;
+    -fx-alignment: center-right;
+}
 
 /* =========================== 13. LOGIN (pre-auth) =================== */
 /* The login screen sits OUTSIDE the main frame (uiContract section 2
@@ -328,9 +466,166 @@
     -fx-pref-width: 400px;
 }
 
-.login-logo { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -fx-primary; }
+.login-logo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+}
 
 /* =========================== 14. SCROLLPANE ========================= */
 
-.scroll-pane, .scroll-pane .viewport { -fx-background-color: transparent; }
-.scroll-pane { -fx-background-insets: 0; -fx-padding: 0; }
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* =========================== 15. POS ================================ */
+
+.pos-root {
+    -fx-background-color: -fx-background;
+    -fx-padding: 0;
+    -fx-spacing: 12px;
+}
+
+.pos-controls-card,
+.pos-cart-card,
+.pos-products-panel {
+    -fx-background-color: -fx-surface;
+    -fx-padding: 16px;
+}
+
+.pos-controls-card {
+    -fx-pref-width: 160px;
+    -fx-border-color: transparent transparent transparent -fx-border;
+    -fx-border-width: 0 0 0 1px;
+}
+
+.pos-cart-card {
+    -fx-pref-width: 390px;
+    -fx-border-color: transparent -fx-border transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.pos-products-panel {
+    -fx-spacing: 12px;
+}
+
+.pos-category-bar {
+    -fx-padding: 0 0 4px 0;
+}
+
+.pos-category-button {
+    -fx-pref-width: 96px;
+    -fx-border-width: 1px;
+    -fx-font-weight: bold;
+}
+
+.pos-category-all {
+    -fx-background-color: -fx-primary-soft;
+    -fx-border-color: -fx-primary;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+.pos-category-dates {
+    -fx-background-color: -fx-success-soft;
+    -fx-border-color: -fx-success;
+    -fx-text-fill: -fx-success;
+}
+
+.pos-category-nuts {
+    -fx-background-color: #FEF3C7;
+    -fx-border-color: #D97706;
+    -fx-text-fill: #92400E;
+}
+
+.pos-category-coffee {
+    -fx-background-color: #EDE9FE;
+    -fx-border-color: #7C3AED;
+    -fx-text-fill: #5B21B6;
+}
+
+.pos-category-misc {
+    -fx-background-color: #CFFAFE;
+    -fx-border-color: #0891B2;
+    -fx-text-fill: #155E75;
+}
+
+.pos-category-sweets {
+    -fx-background-color: #FCE7F3;
+    -fx-border-color: #DB2777;
+    -fx-text-fill: #9D174D;
+}
+
+.pos-category-button:hover,
+.pos-category-button:focused,
+.pos-category-selected {
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.22), 5, 0.15, 0, 2);
+}
+
+.pos-products-grid {
+    -fx-alignment: top-right;
+    -fx-padding: 4px;
+}
+
+.pos-product-button {
+    -fx-pref-width: 132px;
+    -fx-pref-height: 72px;
+    -fx-wrap-text: true;
+    -fx-background-color: -fx-surface;
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 2px;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+.pos-product-button:hover,
+.pos-product-button:focused {
+    -fx-background-color: -fx-primary-soft;
+    -fx-border-color: -fx-primary-dark;
+}
+
+.pos-action-new {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+}
+
+.pos-action-warning {
+    -fx-background-color: -fx-warning;
+    -fx-border-color: -fx-warning;
+    -fx-text-fill: white;
+}
+
+.pos-action-delete {
+    -fx-background-color: -fx-danger;
+    -fx-text-fill: white;
+}
+
+.pos-action-secondary {
+    -fx-background-color: -fx-primary-soft;
+    -fx-border-color: -fx-primary;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+.pos-action-secondary:hover,
+.pos-action-secondary:focused {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+}
+
+.pos-totals {
+    -fx-border-color: -fx-border transparent transparent transparent;
+    -fx-border-width: 1px 0 0 0;
+    -fx-padding: 12px 0 0 0;
+}
+
+.pos-grand-total {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-danger;
+    -fx-padding: 8px 0 0 0;
+}
