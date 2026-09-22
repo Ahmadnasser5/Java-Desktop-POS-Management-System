@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Locale;
 
+import com.pos.product.util.ReceiptService;
+
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -190,11 +192,23 @@ public class PosController {
     }
 
     @FXML
-    private void onPay() {
+    private void handleCheckout() {
         if (cartLines.isEmpty()) {
             Toast.error(posRootPane, "السلة فارغة.");
             return;
         }
+
+        double subtotal = cartLines.stream().mapToDouble(CartLine::lineTotal).sum();
+        double discount = readDiscount();
+        double tax = subtotal * TAX_RATE;
+        String receiptNo = invoiceNumberLabel.getText().replace("فاتورة #", "");
+        ReceiptService receiptService = new ReceiptService(cartLines, receiptNo, "الكاشير", discount, tax);
+
+        if (!receiptService.print()) {
+            Toast.error(posRootPane, "تعذر طباعة الفاتورة.");
+            return;
+        }
+
         Toast.success(posRootPane, "تم تسجيل المعاملة الحالية بإجمالي " + grandTotalValueLabel.getText() + " ريال.");
         cartLines.clear();
         discountField.clear();

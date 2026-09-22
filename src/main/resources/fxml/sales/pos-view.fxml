@@ -26,7 +26,7 @@
                 <AppButton text="حذف فاتورة" variant="DANGER" styleClass="pos-action-delete" onAction="#onNewInvoice"/>
                 <AppButton text="حذف صنف" variant="DANGER" styleClass="pos-action-delete" onAction="#onDeleteSelectedItem"/>
                 <Region VBox.vgrow="ALWAYS"/>
-                <AppButton text="دفع" variant="SUCCESS" onAction="#onPay"/>
+                <AppButton text="دفع" variant="SUCCESS" onAction="#handleCheckout"/>
                 <AppButton text="بحث الفواتير" variant="SECONDARY" styleClass="pos-action-secondary" onAction="#onPlaceholderAction"/>
                 <AppButton text="مبيعات الصالة" variant="SECONDARY" styleClass="pos-action-secondary" onAction="#onPlaceholderAction"/>
                 <AppButton text="فتح الصندوق" variant="SECONDARY" styleClass="pos-action-secondary" onAction="#onPlaceholderAction"/>
