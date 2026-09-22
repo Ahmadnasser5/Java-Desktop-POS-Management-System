@@ -1,5 +1,25 @@
 package com.pos.auth.service;
 
+import java.util.Optional;
+import java.util.Set;
+
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import static org.mockito.ArgumentMatchers.anyInt;
+import org.mockito.Mock;
+import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import com.pos.auth.dao.PermissionDao;
 import com.pos.auth.dao.UserDao;
 import com.pos.auth.exception.AuthenticationException;
@@ -10,26 +30,6 @@ import com.pos.auth.security.BCryptPasswordHasher;
 import com.pos.auth.security.PasswordHasher;
 import com.pos.auth.security.Permissions;
 import com.pos.auth.security.SessionManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.Optional;
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class AuthServiceTest {
@@ -128,7 +128,7 @@ class AuthServiceTest {
         AuthenticationException error = assertThrows(AuthenticationException.class,
                 () -> authService.login("admin", PASSWORD.toCharArray()));
 
-        assertTrue(error.getMessage().toLowerCase().contains("deactivated"));
+        assertTrue(error.getMessage().contains("موقوف"));
         assertFalse(SessionManager.getInstance().isLoggedIn());
     }
 
